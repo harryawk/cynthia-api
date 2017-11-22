@@ -36,6 +36,10 @@ app.post('/postrequest', (req, res) => {
   console.log(req.body)
   console.log('=========== /postrequest HEADERS =============')
   
+  console.log('=========== /postrequest FILES =============')
+  console.log(req.files)
+  console.log('=========== /postrequest FILES =============')
+  
   res.json({
     test: 'POST REQUEST',
     request: 'POST REQ'
