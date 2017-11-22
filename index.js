@@ -40,14 +40,38 @@ app.post('/postrequest', (req, res) => {
   console.log(req.files)
   console.log('=========== /postrequest FILES =============')
   
-  var form = new formidable.IncomingForm()
-  form.parse(req, (err, fields, files) => {
-    res.write('file uploaded')
-    res.end()
+  // var form = new formidable.IncomingForm()
+  // var cloudinary = require('cloudinary');
+  // cloudinary.config({
+  //   cloud_name: 'df32bpcj6',
+  //   api_key: '336891974495423',
+  //   api_secret: '7Tj9z2MYUCLclPiVtImYIVjT5xU'
+  // });
+  // form.parse(req, (err, fields, files) => {
+  //   console.log(files['pic'])
+  //   var fs = require('fs')
+
+  //   fs.readFile(files['pic'], 'utf8', (err, data) => {
+  //     if (err) {
+  //       console.error('error')
+  //       console.error(err)
+  //     }
+  //     console.log(data)
+  //   })
+    // cloudinary.uploader.upload(files['pi`c'], function (result) {
+
+    //   console.log('---- Secure URL :: ' + result['secure_url'] + ' ----');
+    //   var ktp_url = result['secure_url'];
+
+    // })`
+    // res.end()
+    res.send('asdf')
   })
 
-  res.json({
-    test: 'POST REQUEST',
-    request: 'POST REQ'
-  })
+  // res.send('asdf')
+
+  // res.json({
+  //   test: 'POST REQUEST',
+  //   request: 'POST REQ'
+  // })
 })
