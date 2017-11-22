@@ -8,7 +8,7 @@ var app = express().use(bodyParser.json()); // creates express http server
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
 app.get('/', (req, res) => {
-  response.json({
+  res.json({
     try: "Coba API",
     request: "data",
     data: "the_data"
@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/postrequest', (req, res) => {
-  response.json({
+  res.json({
     test: 'POST REQUEST',
     request: 'POST REQ'
   })
