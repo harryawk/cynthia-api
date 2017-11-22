@@ -1,5 +1,5 @@
 var express = require('express')
-var bodyParser = require('body-parser')({ limit: '5mb' })
+var bodyParser = require('body-parser')
 var the_request = require('request')
 var formidable  = require('formidable')
 var app = express().use(bodyParser.json()); // creates express http server
@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
   })
 })
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }));
 
 app.post('/postrequest', (req, res) => {
   
