@@ -8,6 +8,10 @@ var app = express().use(bodyParser.json()); // creates express http server
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
 app.get('/', (req, res) => {
+
+  console.log('=========== / =============')
+  console.log(req)
+  console.log('=========== / =============')
   res.json({
     try: "Coba API",
     request: "data",
@@ -16,6 +20,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/postrequest', (req, res) => {
+  
+  console.log('=========== /postrequest =============')
+  console.log(req)
+  console.log('=========== /postrequest =============')
+  
   res.json({
     test: 'POST REQUEST',
     request: 'POST REQ'
