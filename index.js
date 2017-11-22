@@ -32,6 +32,10 @@ app.post('/postrequest', (req, res) => {
   console.log(req.headers)
   console.log('=========== /postrequest HEADERS =============')
   
+  console.log('=========== /postrequest HEADERS =============')
+  console.log(req.body['the_image'])
+  console.log('=========== /postrequest HEADERS =============')
+  
   res.json({
     test: 'POST REQUEST',
     request: 'POST REQ'
