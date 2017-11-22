@@ -75,3 +75,55 @@ app.post('/postrequest', (req, res) => {
     request: 'POST REQ'
   })
 })
+
+app.post('/sendsms', (req, res) => {
+  if (req.body.to && req.body.msg) {
+    the_request({
+      uri: 'https://api.mainapi.net/token/',
+      auth: {
+        bearer: 'OHhybWI1V3FBcGZmMzJTQ3hiY21iak9uNWtrYTpxVTk5NzA5d0FZYzNHbVBFMHliSVM5OUMxdHNh'
+      },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json'
+      },
+      form: {
+        grant_type: 'client_credentials'
+      },
+      method: 'POST'
+    }, (err, response, body) => {
+      console.log(body)
+      var result = JSON.parse(body)
+      console.log(result.access_token)
+      if (result['access_token']) {
+        var token = result['access_token']
+        console.log(token)
+        var the_link = 'https://api.mainapi.net/smsnotification/1.0.0/messages/'
+        the_request({
+          uri: the_link,
+          auth: {
+            bearer: token
+          },
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json'
+          },
+          form: {
+            msisdn: req.body.to,
+            content: req.body.msg
+          },
+          method: 'POST'
+        }, (err, respond, body) => {
+          console.log(body)
+          if (JSON.parse(body)['status'] == 'SUCCESS') {
+            res.send('OK')
+          } else {
+            res.send('NOT OK')
+          }
+        })
+      }
+    })
+  } else {
+    res.send('Not enough information')
+  }
+})
