@@ -19,11 +19,18 @@ app.get('/', (req, res) => {
   })
 })
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.post('/postrequest', (req, res) => {
   
   console.log('=========== /postrequest =============')
   console.log(req)
   console.log('=========== /postrequest =============')
+  
+  
+  console.log('=========== /postrequest HEADERS =============')
+  console.log(req.headers)
+  console.log('=========== /postrequest HEADERS =============')
   
   res.json({
     test: 'POST REQUEST',
