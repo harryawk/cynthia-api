@@ -65,13 +65,13 @@ app.post('/postrequest', (req, res) => {
 
     // })`
     // res.end()
-    res.send('asdf')
-  })
+    // res.send('asdf')
+  // })
 
   // res.send('asdf')
 
-  // res.json({
-  //   test: 'POST REQUEST',
-  //   request: 'POST REQ'
-  // })
+  res.json({
+    test: 'POST REQUEST',
+    request: 'POST REQ'
+  })
 })
