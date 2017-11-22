@@ -1,7 +1,7 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 var the_request = require('request')
-
+var formidable  = require('formidable')
 var app = express().use(bodyParser.json()); // creates express http server
 
 // Sets server port and logs message on success
@@ -40,6 +40,12 @@ app.post('/postrequest', (req, res) => {
   console.log(req.files)
   console.log('=========== /postrequest FILES =============')
   
+  var form = new formidable.IncomingForm()
+  form.parse(req, (err, fields, files) => {
+    res.write('file uploaded')
+    res.end()
+  })
+
   res.json({
     test: 'POST REQUEST',
     request: 'POST REQ'
