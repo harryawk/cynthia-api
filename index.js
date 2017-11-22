@@ -33,7 +33,7 @@ app.post('/postrequest', (req, res) => {
   console.log('=========== /postrequest HEADERS =============')
   
   console.log('=========== /postrequest HEADERS =============')
-  console.log(req.body['the_image'])
+  console.log(req.body)
   console.log('=========== /postrequest HEADERS =============')
   
   res.json({
