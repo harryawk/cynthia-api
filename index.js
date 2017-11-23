@@ -71,7 +71,7 @@ app.post('/postrequest', (req, res) => {
   // res.send('asdf')
 
   the_request({
-    uri: 'http://f56c7322.ngrok.io/cynthia/api/v1/predict',
+    uri: 'http://f56c7322.ngrok.io/cynthia/api/v1/predict/',
     json: {
       img: 'gambar00004.jpg'
     },
