@@ -70,10 +70,64 @@ app.post('/postrequest', (req, res) => {
 
   // res.send('asdf')
 
+  // the_request({
+  //   uri: 'https://',
+  //   method: 'POST'
+  // }, (err, respond, body) => {
+  //   console.log(body)
+    
+  //   res.json({
+  //     test: 'POST REQUEST',
+  //     request: 'POST REQ'
+  //   })
+  // })
   res.json({
     test: 'POST REQUEST',
-    request: 'POST REQ'
+    request: 'POST REQ',
+    gambars: [
+      {
+        title: 'one',
+        image: req.body
+      },
+      {
+        title: 'two',
+        image: req.body
+      },
+      {
+        title: 'three',
+        image: req.body
+      },
+      {
+        title: 'four',
+        image: req.body
+      },
+      {
+        title: 'five',
+        image: req.body
+      },
+      {
+        title: 'six',
+        image: req.body
+      },
+      {
+        title: 'seven',
+        image: req.body
+      },
+      {
+        title: 'eight',
+        image: req.body
+      },
+      {
+        title: 'nine',
+        image: req.body
+      },
+      {
+        title: 'ten',
+        image: req.body
+      },
+    ]
   })
+
 })
 
 app.post('/sendsms', (req, res) => {
