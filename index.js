@@ -84,7 +84,7 @@ app.post('/postrequest', (req, res) => {
 
     var results = []
 
-    for (var x = 0; x < result.length; x++) {
+    for (var x = 0; x < result.result.length; x++) {
       results.push('data:image/jpeg;base64,' + result.result[x])
     }
 
