@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 })
 
 app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }));
+app.use('/static', express.static('./public'))
 
 app.post('/postrequest', (req, res) => {
   
@@ -84,9 +85,14 @@ app.post('/postrequest', (req, res) => {
     var result = body
 
     var results = []
-
+    var fs = require('fs')
     for (var x = 0; x < result.result.length; x++) {
-      results.push('data:image/jpeg;base64,' + result.result[x])
+      fs.writeFile('public/' + x + '.jpg', 'data:image/jpeg;base64,' + result.result[x], 'binary', function(err) {
+        if (err) console.error(err)
+        console.log('File saved')
+        results.push('http://f072a7ca.ngrok.io/' + x + '.jpg')
+      })
+      // results.push('data:image/jpeg;base64,' + result.result[x])
     }
 
     res.json(results)
