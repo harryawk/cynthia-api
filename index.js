@@ -86,10 +86,11 @@ app.post('/postrequest', (req, res) => {
     var multer = require('multer');
     var storage = multer.diskStorage({
       destination: function (req, file, cb) {
-        cb(null, 'public/upload')
+        cb(null, 'public/')
       },
       filename: function (req, file, cb) {
-        cb(null, uuid.v4() + path.extname(file.originalname));
+        // cb(null, uuid.v4() + path.extname(file.originalname));
+        cb(null, '0.jpg');
       }
     })
     var upload = multer({ storage: storage });
