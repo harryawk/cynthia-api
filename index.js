@@ -86,17 +86,25 @@ app.post('/postrequest', (req, res) => {
 
     var results = []
     var fs = require('fs')
-    for (var x = 0; x < result.result.length; x++) {
-      fs.writeFile('public/' + x + '.jpg', 'data:image/jpeg;base64,' + result.result[x], function(err) {
+    fs.writeFile('public/' + '0' + '.jpg', 'data:image/jpeg;base64,' + result.result[0], function(err) {
+      if (err) console.error(err)
+      console.log('File saved')
+      results.push('http://f072a7ca.ngrok.io/static/' + x + '.jpg')
+      console.log(x)
+      // if (x == result.result.length - 1) 
+      fs.writeFile('public/' + '1' + '.jpg', 'data:image/jpeg;base64,' + result.result[1], function(err) {
         if (err) console.error(err)
         console.log('File saved')
         results.push('http://f072a7ca.ngrok.io/static/' + x + '.jpg')
         console.log(x)
-        if (x == result.result.length - 1) 
-          res.json(results)
+        // if (x == result.result.length - 1) 
+        res.json(results)
       })
-      // results.push('data:image/jpeg;base64,' + result.result[x])
-    }
+    })
+    // for (var x = 0; x < result.result.length; x++) {
+    //   // res.json(results)
+    //   // results.push('data:image/jpeg;base64,' + result.result[x])
+    // }
 
   })
   // res.json({
