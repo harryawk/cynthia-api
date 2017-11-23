@@ -90,7 +90,7 @@ app.post('/postrequest', (req, res) => {
       fs.writeFile('public/' + x + '.jpg', 'data:image/jpeg;base64,' + result.result[x], 'binary', function(err) {
         if (err) console.error(err)
         console.log('File saved')
-        results.push('http://f072a7ca.ngrok.io/' + x + '.jpg')
+        results.push('http://f072a7ca.ngrok.io/static/' + x + '.jpg')
       })
       // results.push('data:image/jpeg;base64,' + result.result[x])
     }
