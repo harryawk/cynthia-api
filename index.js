@@ -87,7 +87,7 @@ app.post('/postrequest', (req, res) => {
 
     upload_image(result.result[0], results)
 
-    await res.json(results)
+    res.json(results)
   })
   // res.json({
   //   test: 'POST REQUEST',
@@ -138,7 +138,7 @@ app.post('/postrequest', (req, res) => {
 
 });
 
-async function upload_image(image, the_arr) {
+function upload_image(image, the_arr) {
   var cloudinary = require('cloudinary');
   cloudinary.config({
     cloud_name: 'df32bpcj6',
