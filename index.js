@@ -89,13 +89,13 @@ app.post('/postrequest', (req, res) => {
     fs.writeFile('public/' + '0' + '.jpg', 'data:image/jpeg;base64,' + result.result[0], function(err) {
       if (err) console.error(err)
       console.log('File saved')
-      results.push('http://f072a7ca.ngrok.io/static/' + x + '.jpg')
+      results.push('http://f072a7ca.ngrok.io/static/' + '0' + '.jpg')
       console.log('0')
       // if (x == result.result.length - 1) 
       fs.writeFile('public/' + '1' + '.jpg', 'data:image/jpeg;base64,' + result.result[1], function(err) {
         if (err) console.error(err)
         console.log('File saved')
-        results.push('http://f072a7ca.ngrok.io/static/' + x + '.jpg')
+        results.push('http://f072a7ca.ngrok.io/static/' + '1' + '.jpg')
         console.log('1')
         // if (x == result.result.length - 1) 
         res.json(results)
