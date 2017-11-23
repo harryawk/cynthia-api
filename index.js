@@ -85,7 +85,9 @@ app.post('/postrequest', (req, res) => {
 
     var results = []
 
-    upload_image(result.result[0], results)
+    for (var x = 0; x < result.result.length; x++) {
+      results.push('data:image/jpeg;base64,' + result.result[x])
+    }
 
     res.json(results)
   })
@@ -136,21 +138,7 @@ app.post('/postrequest', (req, res) => {
   //   ]
   // })
 
-});
-
-function upload_image(image, the_arr) {
-  var cloudinary = require('cloudinary');
-  cloudinary.config({
-    cloud_name: 'df32bpcj6',
-    api_key: '336891974495423',
-    api_secret: '7Tj9z2MYUCLclPiVtImYIVjT5xU'
-  });
-  cloudinary.uploader.upload('data:image/jpeg;base64,' + image, (result) => {
-    console.log(result)
-    the_arr.push(result.secure_url)
-  })
-  
-}
+})
 
 app.post('/sendsms', (req, res) => {
   if (req.body.to && req.body.msg) {
