@@ -69,6 +69,7 @@ app.post('/postrequest', (req, res) => {
   // })
 
   // res.send('asdf')
+  var _ = require('lodash')
 
   the_request({
     uri: 'http://f56c7322.ngrok.io/cynthia/api/v1/predict/',
@@ -84,11 +85,9 @@ app.post('/postrequest', (req, res) => {
 
     var results = []
 
-    for (var x = 0; x < result.result.length; x++) {
-      results.push('data:image/jpeg;base64,' + result.result[x])
-    }
+    upload_image(result.result[0])
 
-    res.json(results)
+    res.json(result)
   })
   // res.json({
   //   test: 'POST REQUEST',
@@ -137,7 +136,16 @@ app.post('/postrequest', (req, res) => {
   //   ]
   // })
 
-})
+});
+
+async function upload_image(image) {
+  var cloudinary = require('cloudinary')
+
+  var result = await cloudinary.v2.uploader.upload('data:image/jpeg;base64,' + image)
+
+  console.log(result)
+  
+}
 
 app.post('/sendsms', (req, res) => {
   if (req.body.to && req.body.msg) {
