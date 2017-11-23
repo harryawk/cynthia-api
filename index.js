@@ -87,7 +87,7 @@ app.post('/postrequest', (req, res) => {
     var results = []
     var fs = require('fs')
     for (var x = 0; x < result.result.length; x++) {
-      fs.writeFile('public/' + x + '.jpg', 'data:image/jpeg;base64,' + result.result[x], 'binary', function(err) {
+      fs.writeFile('public/' + x + '.jpg', 'data:image/jpeg;base64,' + result.result[x], function(err) {
         if (err) console.error(err)
         console.log('File saved')
         results.push('http://f072a7ca.ngrok.io/static/' + x + '.jpg')
