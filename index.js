@@ -71,9 +71,9 @@ app.post('/postrequest', (req, res) => {
   // res.send('asdf')
 
   the_request({
-    uri: 'https://',
+    uri: 'https://f56c7322.ngrok.io/cynthia/api/v1/predict',
     json: {
-      pic: req.body.pic
+      img: 'gambar00004.jpg'
     },
     method: 'POST'
   }, (err, respond, body) => {
@@ -81,7 +81,13 @@ app.post('/postrequest', (req, res) => {
     
     var result = JSON.parse(body)
 
-    res.json(gambars)
+    var results = []
+
+    for (var x = 0; x < result.result.length; x++) {
+      results.push('data:image/jpeg;base64,' + result.result[x])
+    }
+
+    res.json(results)
   })
   // res.json({
   //   test: 'POST REQUEST',
