@@ -87,43 +87,43 @@ app.post('/postrequest', (req, res) => {
     gambars: [
       {
         title: 'one',
-        image: req.body
+        image: req.body.pic
       },
       {
         title: 'two',
-        image: req.body
+        image: req.body.pic
       },
       {
         title: 'three',
-        image: req.body
+        image: req.body.pic
       },
       {
         title: 'four',
-        image: req.body
+        image: req.body.pic
       },
       {
         title: 'five',
-        image: req.body
+        image: req.body.pic
       },
       {
         title: 'six',
-        image: req.body
+        image: req.body.pic
       },
       {
         title: 'seven',
-        image: req.body
+        image: req.body.pic
       },
       {
         title: 'eight',
-        image: req.body
+        image: req.body.pic
       },
       {
         title: 'nine',
-        image: req.body
+        image: req.body.pic
       },
       {
         title: 'ten',
-        image: req.body
+        image: req.body.pic
       },
     ]
   })
