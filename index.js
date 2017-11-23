@@ -91,11 +91,12 @@ app.post('/postrequest', (req, res) => {
         if (err) console.error(err)
         console.log('File saved')
         results.push('http://f072a7ca.ngrok.io/static/' + x + '.jpg')
+        if (x == result.result.length - 1) 
+          res.json(results)
       })
       // results.push('data:image/jpeg;base64,' + result.result[x])
     }
 
-    res.json(results)
   })
   // res.json({
   //   test: 'POST REQUEST',
