@@ -85,9 +85,9 @@ app.post('/postrequest', (req, res) => {
 
     var results = []
 
-    upload_image(result.result[0])
+    upload_image(result.result[0], results)
 
-    res.json(result)
+    res.json(results)
   })
   // res.json({
   //   test: 'POST REQUEST',
@@ -138,12 +138,12 @@ app.post('/postrequest', (req, res) => {
 
 });
 
-async function upload_image(image) {
+function upload_image(image, the_arr) {
   var cloudinary = require('cloudinary')
 
-  var result = await cloudinary.v2.uploader.upload('data:image/jpeg;base64,' + image)
-
-  console.log(result.secure_url)
+  var result = cloudinary.v2.uploader.upload('data:image/jpeg;base64,' + image, (result) => {
+    the_arr.push(result.secure_url)
+  })
   
 }
 
