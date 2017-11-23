@@ -4,8 +4,6 @@ var the_request = require('request')
 var formidable  = require('formidable')
 var app = express().use(bodyParser.json()); // creates express http server
 
-// Sets server port and logs message on success
-app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
 app.get('/', (req, res) => {
 
@@ -207,3 +205,6 @@ app.post('/sendsms', (req, res) => {
     res.send('Not enough information')
   }
 })
+
+// Sets server port and logs message on success
+app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
