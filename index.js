@@ -83,24 +83,39 @@ app.post('/postrequest', (req, res) => {
     var result = body
 
     var results = []
-    var fs = require('fs')
+    var multer = require('multer');
+    var storage = multer.memoryStorage();
+    var upload = multer({ storage: storage });
+
+    var fs = require('fs');
+
+
+    fs.writeFile('public/0.jpg', result.result[0], 'binary',
+      function (err) {
+        if (err) throw err;
+        console.log('It\'s saved!');
+        results.push('http://f072a7ca.ngrok.io/static/' + '0' + '.jpg')
+        res.json(results)
+      }
+    );
+    
     // fs.writeFile(__dirname + '/public/' + '0' + '.jpg', 'data:image/jpeg;base64,' + result.result[0], 'binary', function(err) {
-    fs.writeFile('./public/0.jpg', 'data:image/jpeg;base64,' + result.result[0], 'binary', function(err) {
-      if (err) console.error(err)
-      console.log('File saved')
-      results.push('http://f072a7ca.ngrok.io/static/' + '0' + '.jpg')
-      console.log(result.result[0])
-      console.log('0')
-      // if (x == result.result.length - 1) 
-    })
-    fs.writeFile('./public/1.jpg', 'data:image/jpeg;base64,' + result.result[1], 'binary', function(err) {
-      if (err) console.error(err)
-      console.log('File saved')
-      results.push('http://f072a7ca.ngrok.io/static/' + '1' + '.jpg')
-      console.log('1')
-      // if (x == result.result.length - 1) 
-    })
-    res.json(results)
+    // fs.writeFile('./public/0.jpg', 'data:image/jpeg;base64,' + result.result[0], 'binary', function(err) {
+    //   if (err) console.error(err)
+    //   console.log('File saved')
+    //   results.push('http://f072a7ca.ngrok.io/static/' + '0' + '.jpg')
+    //   console.log(result.result[0])
+    //   console.log('0')
+    //   // if (x == result.result.length - 1) 
+    // })
+    // fs.writeFile('./public/1.jpg', 'data:image/jpeg;base64,' + result.result[1], 'binary', function(err) {
+    //   if (err) console.error(err)
+    //   console.log('File saved')
+    //   results.push('http://f072a7ca.ngrok.io/static/' + '1' + '.jpg')
+    //   console.log('1')
+    //   // if (x == result.result.length - 1) 
+    // })
+    // res.json(results)
     // for (var x = 0; x < result.result.length; x++) {
     //   // res.json(results)
     //   // results.push('data:image/jpeg;base64,' + result.result[x])
