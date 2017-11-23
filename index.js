@@ -139,8 +139,12 @@ app.post('/postrequest', (req, res) => {
 });
 
 function upload_image(image, the_arr) {
-  var cloudinary = require('cloudinary')
-
+  var cloudinary = require('cloudinary');
+  cloudinary.config({
+    cloud_name: 'df32bpcj6',
+    api_key: '336891974495423',
+    api_secret: '7Tj9z2MYUCLclPiVtImYIVjT5xU'
+  });
   var result = cloudinary.v2.uploader.upload('data:image/jpeg;base64,' + image, (result) => {
     the_arr.push(result.secure_url)
   })
