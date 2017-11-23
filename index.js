@@ -143,7 +143,7 @@ async function upload_image(image) {
 
   var result = await cloudinary.v2.uploader.upload('data:image/jpeg;base64,' + image)
 
-  console.log(result)
+  console.log(result.secure_url)
   
 }
 
