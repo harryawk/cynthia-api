@@ -79,7 +79,8 @@ app.post('/postrequest', (req, res) => {
   }, (err, respond, body) => {
     console.log(body)
     
-    var result = JSON.parse(body)
+    // var result = JSON.parse(body)
+    var result = body
 
     var results = []
 
