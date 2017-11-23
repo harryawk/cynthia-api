@@ -89,6 +89,7 @@ app.post('/postrequest', (req, res) => {
       if (err) console.error(err)
       console.log('File saved')
       results.push('http://f072a7ca.ngrok.io/static/' + '0' + '.jpg')
+      console.log(result.result[0])
       console.log('0')
       // if (x == result.result.length - 1) 
       fs.writeFile('/public/1.jpg', 'data:image/jpeg;base64,' + result.result[1], 'binary', function(err) {
