@@ -73,7 +73,7 @@ app.post('/postrequest', (req, res) => {
   the_request({
     uri: 'http://f56c7322.ngrok.io/cynthia/api/v1/predict/',
     json: {
-      img: 'gambar00004.jpg'
+      img: req.body['img']
     },
     method: 'POST'
   }, (err, respond, body) => {
