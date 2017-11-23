@@ -145,7 +145,7 @@ function upload_image(image, the_arr) {
     api_key: '336891974495423',
     api_secret: '7Tj9z2MYUCLclPiVtImYIVjT5xU'
   });
-  cloudinary.v2.uploader.upload('data:image/jpeg;base64,' + image, (result) => {
+  cloudinary.uploader.upload('data:image/jpeg;base64,' + image, (result) => {
     console.log(result)
     the_arr.push(result.secure_url)
   })
