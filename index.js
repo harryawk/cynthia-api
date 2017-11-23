@@ -70,63 +70,65 @@ app.post('/postrequest', (req, res) => {
 
   // res.send('asdf')
 
-  // the_request({
-  //   uri: 'https://',
-  //   method: 'POST'
-  // }, (err, respond, body) => {
-  //   console.log(body)
+  the_request({
+    uri: 'https://',
+    json: {
+      pic: req.body.pic
+    },
+    method: 'POST'
+  }, (err, respond, body) => {
+    console.log(body)
     
-  //   res.json({
-  //     test: 'POST REQUEST',
-  //     request: 'POST REQ'
-  //   })
-  // })
-  res.json({
-    test: 'POST REQUEST',
-    request: 'POST REQ',
-    gambars: [
-      {
-        title: 'one',
-        image: req.body.pic
-      },
-      {
-        title: 'two',
-        image: req.body.pic
-      },
-      {
-        title: 'three',
-        image: req.body.pic
-      },
-      {
-        title: 'four',
-        image: req.body.pic
-      },
-      {
-        title: 'five',
-        image: req.body.pic
-      },
-      {
-        title: 'six',
-        image: req.body.pic
-      },
-      {
-        title: 'seven',
-        image: req.body.pic
-      },
-      {
-        title: 'eight',
-        image: req.body.pic
-      },
-      {
-        title: 'nine',
-        image: req.body.pic
-      },
-      {
-        title: 'ten',
-        image: req.body.pic
-      },
-    ]
+    var result = JSON.parse(body)
+
+    res.json(gambars)
   })
+  // res.json({
+  //   test: 'POST REQUEST',
+  //   request: 'POST REQ',
+  //   gambars: [
+  //     {
+  //       title: 'one',
+  //       image: req.body
+  //     },
+  //     {
+  //       title: 'two',
+  //       image: req.body
+  //     },
+  //     {
+  //       title: 'three',
+  //       image: req.body
+  //     },
+  //     {
+  //       title: 'four',
+  //       image: req.body
+  //     },
+  //     {
+  //       title: 'five',
+  //       image: req.body
+  //     },
+  //     {
+  //       title: 'six',
+  //       image: req.body
+  //     },
+  //     {
+  //       title: 'seven',
+  //       image: req.body
+  //     },
+  //     {
+  //       title: 'eight',
+  //       image: req.body
+  //     },
+  //     {
+  //       title: 'nine',
+  //       image: req.body
+  //     },
+  //     {
+  //       title: 'ten',
+  //       image: req.body
+  //     },
+  //   ]
+  // })
 
 })
 
@@ -164,7 +166,7 @@ app.post('/sendsms', (req, res) => {
           },
           form: {
             msisdn: req.body.to,
-            content: req.body.msg
+            content: "Anda berhasil login"
           },
           method: 'POST'
         }, (err, respond, body) => {
